@@ -13,13 +13,18 @@ public class WordController {
     @Autowired
     WordRepository wordRepository;
 
-    @PostMapping(value = "/word")
+    @PostMapping(value = "/api/word")
     Word newWord(@RequestBody Word word) {
         return wordRepository.save(word);
     }
 
-    @GetMapping(value = "/words")
+    @GetMapping(value = "/api/words")
     List<Word> getWords() {
         return wordRepository.findAll();
     }
+
+	@GetMapping(value = "/api/hello")
+	public String hello() {
+		return "Hello, Spring Boot and React.js";
+	}
 }
